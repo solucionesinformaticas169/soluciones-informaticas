@@ -19,7 +19,7 @@ export default function HomePage() {
       <section className="hero-shell">
         <div className="section pb-10 pt-6">
           <header className="-mx-4 mb-6 border-b border-white/10 bg-[#0b1833]/75 px-4 py-4 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10">
-            <div className="flex flex-wrap items-center justify-between gap-6">
+            <div className="flex items-start justify-between gap-6">
               <div className="flex flex-col gap-3">
                 <div className="group relative transition duration-500 hover:-translate-y-1 hover:scale-[1.03]">
                   <div className="pointer-events-none absolute inset-0 rounded-[1.25rem] bg-[radial-gradient(circle_at_center,_rgba(49,141,255,0.3),_transparent_68%)] opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
@@ -29,7 +29,32 @@ export default function HomePage() {
                 </div>
                 <span className="h-[3px] w-32 rounded-full bg-brand-500 shadow-[0_0_24px_rgba(49,141,255,0.55)]" />
               </div>
-              <nav className="flex flex-wrap gap-3 text-sm text-slate-200">
+
+              <details className="group md:hidden">
+                <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/10 bg-white/10 px-5 py-3 text-sm font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15">
+                  <span>Menu</span>
+                  <span className="text-xs transition group-open:rotate-180">⌄</span>
+                </summary>
+                <nav className="absolute right-4 z-20 mt-3 grid min-w-[210px] gap-2 rounded-[1.5rem] border border-white/10 bg-[#10213f]/95 p-3 shadow-[0_24px_60px_rgba(3,10,23,0.42)] backdrop-blur">
+                  <Link href="/agendar" className="nav-chip justify-center">
+                    Agenda cita
+                  </Link>
+                  <a href="#servicios" className="nav-chip justify-center">
+                    Servicios
+                  </a>
+                  <a href="#automatizacion" className="nav-chip justify-center">
+                    Automatizacion
+                  </a>
+                  <a href="#contacto" className="nav-chip justify-center">
+                    Contacto
+                  </a>
+                  <Link href="/admin/login" className="nav-chip justify-center">
+                    Login
+                  </Link>
+                </nav>
+              </details>
+
+              <nav className="hidden flex-wrap gap-3 text-sm text-slate-200 md:flex">
                 <Link href="/agendar" className="nav-chip">
                   Agenda cita
                 </Link>
