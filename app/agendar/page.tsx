@@ -24,8 +24,8 @@ export default async function AgendarPage() {
             <span className="eyebrow text-brand-100">Reserva tu espacio</span>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-white">Agendamiento profesional</h1>
             <p className="mt-4 leading-8 text-slate-300">
-              Este modulo te permite ofrecer una atencion ordenada desde la web. Cada solicitud puede guardarse en
-              PostgreSQL, gestionarse desde panel administrativo y conectarse despues con automatizaciones reales.
+              Este módulo te permite ofrecer una atención ordenada desde la web. Cada solicitud puede guardarse en
+              PostgreSQL, gestionarse desde panel administrativo y conectarse después con automatizaciones reales.
             </p>
             <div className="mt-8 grid gap-4">
               {valuePoints.map((item) => (
@@ -37,7 +37,7 @@ export default async function AgendarPage() {
           </div>
 
           <div className="card">
-            <span className="eyebrow">Contacto rapido</span>
+            <span className="eyebrow">Contacto rápido</span>
             <p className="mt-4 leading-7 text-slate-600">
               Si prefieres coordinar primero por mensaje o por correo, puedes escribir directamente y luego pasamos
               a la reserva formal.
@@ -52,7 +52,7 @@ export default async function AgendarPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 px-5 py-4 text-center font-medium text-slate-700 transition hover:border-brand-300 hover:text-brand-700"
               >
                 <MailIcon className="h-5 w-5" />
-                Envia un correo
+                Envía un correo
               </a>
             </div>
           </div>

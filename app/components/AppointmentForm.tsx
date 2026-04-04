@@ -166,7 +166,7 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
         notes: ""
       });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Ocurrio un error inesperado.");
+      setError(err instanceof Error ? err.message : "Ocurrió un error inesperado.");
     } finally {
       setLoading(false);
     }
@@ -177,7 +177,7 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
       <div>
         <h3 className="text-2xl font-semibold text-slate-950">Agenda una cita</h3>
         <p className="mt-2 text-sm leading-6 text-slate-600">
-          Completa el formulario para solicitar una reunion. Esta base ya queda lista para confirmaciones por
+          Completa el formulario para solicitar una reunión. Esta base ya queda lista para confirmaciones por
           WhatsApp, correo y seguimiento interno desde un panel administrativo.
         </p>
       </div>
@@ -193,18 +193,18 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
               setForm({ ...form, fullName: nextValue });
             }}
             className="form-input"
-            placeholder="Juan Perez"
+            placeholder="Juan Pérez"
             inputMode="text"
             pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+"
             title="Ingresa solo letras."
           />
           {form.fullName.length > 0 && !isValidFullName(form.fullName) ? (
-            <span className="text-xs text-rose-600">Ingresa solo letras y al menos un nombre valido.</span>
+            <span className="text-xs text-rose-600">Ingresa solo letras y al menos un nombre válido.</span>
           ) : null}
         </label>
 
         <label className="space-y-2 text-sm">
-          <span className="font-medium text-slate-800">Telefono / WhatsApp</span>
+          <span className="font-medium text-slate-800">Teléfono / WhatsApp</span>
           <input
             required
             value={form.phone}
@@ -217,15 +217,15 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
             inputMode="numeric"
             maxLength={10}
             pattern="\d{10}"
-            title="Ingresa solo 10 digitos."
+            title="Ingresa solo 10 dígitos."
           />
           {form.phone.length > 0 && !isValidPhone(form.phone) ? (
-            <span className="text-xs text-rose-600">Ingresa solo numeros y exactamente 10 digitos.</span>
+            <span className="text-xs text-rose-600">Ingresa solo números y exactamente 10 dígitos.</span>
           ) : null}
         </label>
 
         <label className="space-y-2 text-sm">
-          <span className="font-medium text-slate-800">Correo electronico</span>
+          <span className="font-medium text-slate-800">Correo electrónico</span>
           <input
             required
             type="email"
@@ -236,7 +236,7 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
             inputMode="email"
           />
           {form.email.length > 0 && !isValidEmail(form.email) ? (
-            <span className="text-xs text-rose-600">Ingresa un correo valido con arroba.</span>
+            <span className="text-xs text-rose-600">Ingresa un correo válido con arroba.</span>
           ) : null}
         </label>
 
@@ -274,7 +274,7 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
 
               if (nextDate && isSundayDate(nextDate)) {
                 setForm({ ...form, appointmentDate: "", appointmentTime: "" });
-                setError("Los domingos no estan disponibles. Selecciona otro dia.");
+                setError("Los domingos no están disponibles. Selecciona otro día.");
                 setMessage(null);
                 return;
               }
@@ -314,11 +314,13 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
       </div>
 
       <div className="rounded-3xl bg-slate-50 p-5 text-sm leading-6 text-slate-600">
-        <p className="font-medium text-slate-800">Horario de atencion</p>
+        <p className="font-medium text-slate-800">Horario de atención</p>
         <p className="mt-2">
-          Lunes a viernes: 08:00 a 13:00 y 14:00 a 18:00. Sabados: 09:00 a 13:00. Atencion cada hora.
+          Lunes a viernes: 08:00 a 13:00 y 14:00 a 18:00. Sábados: 09:00 a 13:00. Atención cada hora.
         </p>
-        <p className="mt-2 text-brand-700">{availabilityLoading ? "Estamos revisando los horarios disponibles..." : availabilityMessage}</p>
+        <p className="mt-2 text-brand-700">
+          {availabilityLoading ? "Estamos revisando los horarios disponibles..." : availabilityMessage}
+        </p>
       </div>
 
       <label className="space-y-2 text-sm">
@@ -328,7 +330,7 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
           value={form.notes}
           onChange={(event) => setForm({ ...form, notes: event.target.value })}
           className="form-input min-h-[140px] resize-y"
-          placeholder="Cuentame brevemente en que necesitas ayuda, el tipo de negocio o el problema que quieres resolver."
+          placeholder="Cuéntame brevemente en qué necesitas ayuda, el tipo de negocio o el problema que quieres resolver."
         />
       </label>
 
@@ -336,7 +338,7 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
       {error ? <p className="rounded-2xl bg-rose-50 px-4 py-3 text-sm text-rose-700">{error}</p> : null}
       {loading ? (
         <p className="rounded-2xl bg-brand-50 px-4 py-3 text-sm text-brand-700">
-          Estamos registrando tu cita y preparando la confirmacion.
+          Estamos registrando tu cita y preparando la confirmación.
         </p>
       ) : null}
 

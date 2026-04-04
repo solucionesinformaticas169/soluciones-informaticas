@@ -30,25 +30,40 @@ export default function HomePage() {
                 <span className="h-[3px] w-32 rounded-full bg-brand-500 shadow-[0_0_24px_rgba(49,141,255,0.55)]" />
               </div>
 
-              <details className="group md:hidden">
+              <details className="group relative z-30 md:hidden">
                 <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/10 bg-white/10 px-5 py-3 text-sm font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15">
-                  <span>Menu</span>
+                  <span>Menú</span>
                   <span className="text-xs transition group-open:rotate-180">⌄</span>
                 </summary>
-                <nav className="absolute right-4 z-20 mt-3 grid min-w-[210px] gap-2 rounded-[1.5rem] border border-white/10 bg-[#10213f]/95 p-3 shadow-[0_24px_60px_rgba(3,10,23,0.42)] backdrop-blur">
-                  <Link href="/agendar" className="nav-chip justify-center">
+                <nav className="absolute right-0 z-40 mt-3 grid min-w-[230px] gap-2 rounded-[1.5rem] border border-white/10 bg-[#0f1f3d] p-3 shadow-[0_24px_60px_rgba(3,10,23,0.52)]">
+                  <Link
+                    href="/agendar"
+                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
+                  >
                     Agenda cita
                   </Link>
-                  <a href="#servicios" className="nav-chip justify-center">
+                  <a
+                    href="#servicios"
+                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
+                  >
                     Servicios
                   </a>
-                  <a href="#automatizacion" className="nav-chip justify-center">
-                    Automatizacion
+                  <a
+                    href="#automatizacion"
+                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
+                  >
+                    Automatización
                   </a>
-                  <a href="#contacto" className="nav-chip justify-center">
+                  <a
+                    href="#contacto"
+                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
+                  >
                     Contacto
                   </a>
-                  <Link href="/admin/login" className="nav-chip justify-center">
+                  <Link
+                    href="/admin/login"
+                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
+                  >
                     Login
                   </Link>
                 </nav>
@@ -62,7 +77,7 @@ export default function HomePage() {
                   Servicios
                 </a>
                 <a href="#automatizacion" className="nav-chip">
-                  Automatizacion
+                  Automatización
                 </a>
                 <a href="#contacto" className="nav-chip">
                   Contacto
@@ -84,7 +99,7 @@ export default function HomePage() {
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
                 Desarrollamos software, aplicaciones, automatizaciones, sistemas de citas e integraciones con
-                inteligencia artificial para convertir procesos manuales en operaciones mas claras, rapidas y
+                inteligencia artificial para convertir procesos manuales en operaciones más claras, rápidas y
                 rentables.
               </p>
 
@@ -97,7 +112,7 @@ export default function HomePage() {
                   Contactar por WhatsApp
                 </a>
                 <a href="#contacto" className="btn-ghost">
-                  Solicitar informacion
+                  Solicitar información
                 </a>
               </div>
             </div>
@@ -107,7 +122,7 @@ export default function HomePage() {
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="text-xs uppercase tracking-[0.35em] text-brand-200">Identidad visual</p>
-                    <h2 className="mt-3 text-2xl font-semibold text-white">Una marca clara para tecnologia profesional</h2>
+                    <h2 className="mt-3 text-2xl font-semibold text-white">Una marca clara para tecnología profesional</h2>
                   </div>
                   <div className="rounded-full border border-white/15 px-3 py-1 text-xs text-slate-300">
                     Base profesional
@@ -144,10 +159,10 @@ export default function HomePage() {
       <section id="servicios" className="section">
         <div className="section-heading">
           <span className="eyebrow">Servicios principales</span>
-          <h2>Soluciones alineadas con desarrollo, automatizacion, peritaje digital e inteligencia artificial.</h2>
+          <h2>Soluciones alineadas con desarrollo, automatización, peritaje digital e inteligencia artificial.</h2>
           <p>
-            Esta pagina ya comunica con claridad que puedes crear sistemas completos, mejorar procesos y resolver
-            necesidades tecnicas reales para empresas y profesionales.
+            Esta página ya comunica con claridad que puedes crear sistemas completos, mejorar procesos y resolver
+            necesidades técnicas reales para empresas y profesionales.
           </p>
         </div>
 
@@ -167,11 +182,11 @@ export default function HomePage() {
           <div className="deep-card">
             <span className="eyebrow text-brand-100">Propuesta de valor</span>
             <h2 className="mt-5 text-3xl font-semibold text-white sm:text-4xl">
-              Presencia profesional, captacion de clientes y base tecnica escalable en una sola plataforma.
+              Presencia profesional, captación de clientes y base técnica escalable en una sola plataforma.
             </h2>
             <p className="mt-5 max-w-2xl leading-8 text-slate-300">
-              La pagina no solo presenta tus servicios. Tambien demuestra tu capacidad para integrar frontend,
-              backend, base de datos, automatizacion de mensajes y operacion administrativa sobre una misma solucion.
+              La página no solo presenta tus servicios. También demuestra tu capacidad para integrar frontend,
+              backend, base de datos, automatización de mensajes y operación administrativa sobre una misma solución.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
@@ -180,7 +195,7 @@ export default function HomePage() {
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
                 <p className="text-sm text-slate-300">Resultado</p>
-                <p className="mt-3 text-xl font-semibold text-white">Mas orden, mejor atencion y mas conversion</p>
+                <p className="mt-3 text-xl font-semibold text-white">Más orden, mejor atención y más conversión</p>
               </div>
             </div>
           </div>
@@ -211,13 +226,13 @@ export default function HomePage() {
             <h2 className="mt-5 text-3xl font-semibold text-slate-950">Sistema de citas con seguimiento real</h2>
             <p className="mt-4 leading-7 text-slate-600">
               Tus clientes pueden elegir un servicio, reservar una fecha y dejar sus datos. La solicitud queda
-              registrada y luego puede activarse el envio de correo, WhatsApp de confirmacion y recordatorios.
+              registrada y luego puede activarse el envío de correo, WhatsApp de confirmación y recordatorios.
             </p>
             <div className="mt-8 grid gap-4">
               {[
                 "Solicitud desde la web con datos completos del cliente",
-                "Registro en PostgreSQL para seguimiento y gestion interna",
-                "Confirmaciones y recordatorios por canales automaticos"
+                "Registro en PostgreSQL para seguimiento y gestión interna",
+                "Confirmaciones y recordatorios por canales automáticos"
               ].map((item) => (
                 <div key={item} className="rounded-3xl bg-slate-50 p-5">
                   <p className="text-sm leading-6 text-slate-700">{item}</p>
@@ -228,10 +243,10 @@ export default function HomePage() {
 
           <div className="card transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(20,36,80,0.14)]">
             <span className="eyebrow">Panel administrativo</span>
-            <h2 className="mt-5 text-3xl font-semibold text-slate-950">Operacion centralizada para ti</h2>
+            <h2 className="mt-5 text-3xl font-semibold text-slate-950">Operación centralizada para ti</h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Esta base ya esta preparada para continuar con autenticacion, panel privado, reportes, gestion de
-              servicios y crecimiento hacia una plataforma mas amplia.
+              Esta base ya está preparada para continuar con autenticación, panel privado, reportes, gestión de
+              servicios y crecimiento hacia una plataforma más amplia.
             </p>
             <ul className="mt-8 space-y-4">
               {adminHighlights.map((item) => (
@@ -250,11 +265,11 @@ export default function HomePage() {
           <div>
             <span className="eyebrow text-brand-100">Contacto</span>
             <h2 className="mt-5 max-w-3xl text-3xl font-semibold text-white sm:text-4xl">
-              Si necesitas una solucion digital profesional, aqui tienes una base real para avanzar.
+              Si necesitas una solución digital profesional, aquí tienes una base real para avanzar.
             </h2>
             <p className="mt-5 max-w-2xl leading-8 text-slate-300">
-              Desarrollamos software, aplicaciones, automatizacion, informatica forense e IA con enfoque practico:
-              resolver procesos, mejorar atencion y construir herramientas listas para operar.
+              Desarrollamos software, aplicaciones, automatización, informática forense e IA con enfoque práctico:
+              resolver procesos, mejorar atención y construir herramientas listas para operar.
             </p>
           </div>
 
@@ -265,7 +280,7 @@ export default function HomePage() {
             </a>
             <a href={`mailto:${company.email}`} className="btn-secondary gap-2">
               <MailIcon className="h-5 w-5" />
-              Envia un correo
+              Envía un correo
             </a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-ghost gap-2 text-white">
               <WhatsAppIcon className="h-5 w-5" />

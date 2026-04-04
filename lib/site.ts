@@ -1,11 +1,11 @@
 export const company = {
-  name: "Soluciones Informaticas",
-  legalName: "Soluciones Informaticas",
-  slogan: "Tecnologia inteligente para empresas y profesionales",
+  name: "Soluciones Informáticas",
+  legalName: "Soluciones Informáticas",
+  slogan: "Tecnología inteligente para empresas y profesionales",
   phoneDisplay: "0998622737",
   phoneIntl: "593998622737",
   email: "solucionesinformaticas226@gmail.com",
-  whatsappMessage: "Hola, quiero informacion sobre sus servicios tecnologicos."
+  whatsappMessage: "Hola, quiero información sobre sus servicios tecnológicos."
 };
 
 export const whatsappUrl = `https://wa.me/${company.phoneIntl}?text=${encodeURIComponent(company.whatsappMessage)}`;
@@ -19,31 +19,31 @@ export const serviceCards = [
   },
   {
     title: "Apps conectadas",
-    eyebrow: "Experiencias moviles",
+    eyebrow: "Experiencias móviles",
     description:
-      "Aplicaciones moviles y soluciones conectadas con APIs, bases de datos, autenticacion, notificaciones y sincronizacion en tiempo real."
+      "Aplicaciones móviles y soluciones conectadas con APIs, bases de datos, autenticación, notificaciones y sincronización en tiempo real."
   },
   {
-    title: "Automatizacion",
+    title: "Automatización",
     eyebrow: "Ahorro operativo",
     description:
-      "Automatizacion de procesos, bots, recordatorios, formularios y flujos para ventas, soporte y seguimiento de clientes."
+      "Automatización de procesos, bots, recordatorios, formularios y flujos para ventas, soporte y seguimiento de clientes."
   },
   {
-    title: "Informatica forense",
+    title: "Informática forense",
     eyebrow: "Evidencia digital",
     description:
-      "Peritaje informatico, analisis de evidencia digital, trazabilidad tecnica y soporte para casos especializados."
+      "Peritaje informático, análisis de evidencia digital, trazabilidad técnica y soporte para casos especializados."
   },
   {
     title: "Inteligencia artificial",
-    eyebrow: "Automatizacion inteligente",
+    eyebrow: "Automatización inteligente",
     description:
-      "Chatbots, asistentes virtuales, clasificacion automatica, respuestas inteligentes y herramientas de IA aplicadas al negocio."
+      "Chatbots, asistentes virtuales, clasificación automática, respuestas inteligentes y herramientas de IA aplicadas al negocio."
   },
   {
     title: "Sistemas de citas",
-    eyebrow: "Conversion y seguimiento",
+    eyebrow: "Conversión y seguimiento",
     description:
       "Agendamiento online con confirmaciones, recordatorios, panel administrativo y base lista para evolucionar a SaaS."
   }
@@ -51,70 +51,70 @@ export const serviceCards = [
 
 export const defaultServices = [
   {
-    name: "Diagnostico inicial",
+    name: "Diagnóstico inicial",
     slug: "diagnostico-inicial",
-    shortDescription: "Revision del requerimiento, prioridades del negocio y propuesta tecnica inicial.",
-    description: "Sesion inicial para entender el problema, alcance y mejor camino tecnico."
+    shortDescription: "Revisión del requerimiento, prioridades del negocio y propuesta técnica inicial.",
+    description: "Sesión inicial para entender el problema, alcance y mejor camino técnico."
   },
   {
     name: "Desarrollo de software",
     slug: "desarrollo-de-software",
-    shortDescription: "Sistemas web empresariales hechos a medida para procesos internos o atencion al cliente.",
-    description: "Construccion de sistemas administrativos, CRM, ERP y plataformas operativas."
+    shortDescription: "Sistemas web empresariales hechos a medida para procesos internos o atención al cliente.",
+    description: "Construcción de sistemas administrativos, CRM, ERP y plataformas operativas."
   },
   {
-    name: "Aplicaciones moviles",
+    name: "Aplicaciones móviles",
     slug: "aplicaciones-moviles",
     shortDescription: "Apps conectadas con APIs, bases de datos y flujos sincronizados.",
-    description: "Desarrollo de aplicaciones moviles y experiencias conectadas con backend."
+    description: "Desarrollo de aplicaciones móviles y experiencias conectadas con backend."
   },
   {
-    name: "Automatizacion de procesos",
+    name: "Automatización de procesos",
     slug: "automatizacion-de-procesos",
     shortDescription: "Bots, formularios, notificaciones y flujos que reducen tareas manuales.",
-    description: "Automatizacion de operaciones, seguimiento comercial y tareas repetitivas."
+    description: "Automatización de operaciones, seguimiento comercial y tareas repetitivas."
   },
   {
-    name: "Informatica forense",
+    name: "Informática forense",
     slug: "informatica-forense",
-    shortDescription: "Analisis de evidencia digital, soporte tecnico y trazabilidad especializada.",
-    description: "Peritaje informatico, analisis de evidencia y documentacion tecnica."
+    shortDescription: "Análisis de evidencia digital, soporte técnico y trazabilidad especializada.",
+    description: "Peritaje informático, análisis de evidencia y documentación técnica."
   },
   {
     name: "Chatbot e IA",
     slug: "chatbot-e-ia",
-    shortDescription: "Asistentes inteligentes para soporte, ventas y automatizacion avanzada.",
-    description: "Integracion de chatbots, asistentes y procesos impulsados por IA."
+    shortDescription: "Asistentes inteligentes para soporte, ventas y automatización avanzada.",
+    description: "Integración de chatbots, asistentes y procesos impulsados por IA."
   },
   {
-    name: "Asesoria tecnologica",
+    name: "Asesoría tecnológica",
     slug: "asesoria-tecnologica",
-    shortDescription: "Acompanamiento para decidir arquitectura, herramientas e integraciones.",
-    description: "Consultoria para evolucionar procesos, sistemas y estrategia digital."
+    shortDescription: "Acompañamiento para decidir arquitectura, herramientas e integraciones.",
+    description: "Consultoría para evolucionar procesos, sistemas y estrategia digital."
   }
 ] as const;
 
 export const valuePoints = [
   "Arquitectura profesional lista para crecer",
-  "Automatizacion por WhatsApp y correo",
-  "Panel administrativo para operacion diaria",
-  "Base tecnica preparada para evolucionar a SaaS"
+  "Automatización por WhatsApp y correo",
+  "Panel administrativo para operación diaria",
+  "Base técnica preparada para evolucionar a SaaS"
 ] as const;
 
 export const processSteps = [
   {
     step: "01",
-    title: "Diagnostico y alcance",
-    description: "Analizamos tu necesidad, el flujo del negocio y la mejor solucion para resolverlo de forma profesional."
+    title: "Diagnóstico y alcance",
+    description: "Analizamos tu necesidad, el flujo del negocio y la mejor solución para resolverlo de forma profesional."
   },
   {
     step: "02",
-    title: "Diseno y desarrollo",
+    title: "Diseño y desarrollo",
     description: "Construimos interfaces claras, backend robusto e integraciones reales con enfoque en rendimiento y escalabilidad."
   },
   {
     step: "03",
-    title: "Automatizacion y despliegue",
+    title: "Automatización y despliegue",
     description: "Conectamos base de datos, notificaciones, paneles y dejamos tu sistema listo para operar y crecer."
   }
 ] as const;
@@ -123,5 +123,5 @@ export const adminHighlights = [
   "Ver citas agendadas y estado de cada solicitud",
   "Confirmar, reprogramar o cancelar reservas",
   "Administrar servicios, clientes y notas",
-  "Consultar estadisticas para tomar decisiones"
+  "Consultar estadísticas para tomar decisiones"
 ] as const;
