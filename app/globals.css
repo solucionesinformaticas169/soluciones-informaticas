@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(40, 118, 255, 0.12), transparent 26%),
+    radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent 20%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+}
+
+.section {
+  @apply mx-auto max-w-7xl px-6 py-20 lg:px-8;
+}
+
+.card {
+  @apply rounded-[2rem] border border-slate-200/80 bg-white p-8 shadow-soft;
+}
+
+.hero-shell {
+  background:
+    radial-gradient(circle at top right, rgba(43, 123, 255, 0.35), transparent 28%),
+    radial-gradient(circle at 18% 18%, rgba(7, 169, 255, 0.2), transparent 18%),
+    linear-gradient(145deg, #071224 0%, #0a1b35 45%, #132c56 100%);
+}
+
+.hero-card {
+  @apply rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-[0_25px_80px_rgba(5,12,31,0.4)] backdrop-blur;
+}
+
+.deep-card {
+  @apply rounded-[2rem] border border-slate-900/5 bg-slate-950 p-8 shadow-[0_24px_70px_rgba(15,23,42,0.22)];
+  background-image:
+    radial-gradient(circle at top right, rgba(53, 141, 255, 0.28), transparent 30%),
+    linear-gradient(160deg, rgba(10, 20, 39, 1) 0%, rgba(15, 31, 61, 1) 100%);
+}
+
+.glass-panel {
+  @apply rounded-[1.75rem] border border-white/10 bg-white/5 p-5 shadow-[0_10px_40px_rgba(3,10,23,0.18)] backdrop-blur;
+}
+
+.feature-card {
+  @apply rounded-[2rem] border border-slate-200/80 bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-[0_24px_60px_rgba(20,36,80,0.12)];
+}
+
+.section-heading {
+  @apply mb-12 max-w-3xl;
+}
+
+.section-heading h2 {
+  @apply mt-5 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl;
+}
+
+.section-heading p {
+  @apply mt-4 text-lg leading-8 text-slate-600;
+}
+
+.eyebrow {
+  @apply inline-flex rounded-full bg-brand-100 px-4 py-2 text-sm font-semibold text-brand-700;
+}
+
+.nav-chip {
+  @apply rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:border-brand-300/40 hover:bg-white/10;
+}
+
+.btn-primary {
+  @apply inline-flex items-center rounded-2xl bg-brand-500 px-6 py-3 font-semibold text-white transition hover:bg-brand-400;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center rounded-2xl border border-white/15 bg-white px-6 py-3 font-semibold text-slate-900 transition hover:border-brand-200 hover:text-brand-700;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-slate-100 transition hover:bg-white/10;
+}
+
+.form-input {
+  @apply w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-4 focus:ring-brand-100;
+}
+
+.cta-banner {
+  @apply grid gap-8 rounded-[2.25rem] border border-slate-900/5 p-8 shadow-[0_30px_80px_rgba(15,23,42,0.18)] lg:grid-cols-[1.2fr_0.8fr] lg:items-center;
+  background:
+    radial-gradient(circle at top right, rgba(56, 149, 255, 0.35), transparent 28%),
+    linear-gradient(160deg, #08152a 0%, #12274a 100%);
+}
