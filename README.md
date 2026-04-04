@@ -71,6 +71,7 @@ npm run dev
 ## 7. Procesador de notificaciones
 
 - Endpoint interno: `/api/notifications/process`
-- Requiere `Authorization: Bearer <NOTIFICATION_PROCESSOR_SECRET>` en produccion
+- Requiere `Authorization: Bearer <NOTIFICATION_PROCESSOR_SECRET>` o `?secret=<NOTIFICATION_PROCESSOR_SECRET>` en produccion
 - La app intenta dispararlo sola al crear o actualizar citas
 - Para produccion conviene ejecutarlo tambien por cron cada minuto desde tu plataforma
+- Ya se incluye [vercel.json](/C:/Users/Adrian/Documents/Pagina%20profesional/soluciones-informaticas-starter/vercel.json) con cron por minuto para Vercel
