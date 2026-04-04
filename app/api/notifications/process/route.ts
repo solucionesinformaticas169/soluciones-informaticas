@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { processPendingNotificationJobs } from "@/lib/notifications";
 
 function isAuthorized(request: Request) {
-  const secret = process.env.NOTIFICATION_PROCESSOR_SECRET;
+  const secret = process.env.NOTIFICATION_PROCESSOR_SECRET || process.env.CRON_SECRET;
 
   if (!secret && process.env.NODE_ENV !== "production") {
     return true;

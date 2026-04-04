@@ -1,7 +1,7 @@
 {
   "crons": [
     {
-      "path": "/api/notifications/process?secret=@notification_processor_secret",
+      "path": "/api/notifications/process",
       "schedule": "* * * * *"
     }
   ]
