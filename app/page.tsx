@@ -290,7 +290,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="pb-4 text-center text-sm text-slate-500">
+      <footer className="pb-4 text-center text-sm text-brand-600">
         © 2026 Soluciones Informáticas. Todos los derechos reservados.
       </footer>
     </main>
