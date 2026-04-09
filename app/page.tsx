@@ -260,7 +260,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="contacto" className="section pt-0">
+      <section id="contacto" className="section pb-10 pt-0">
         <div className="cta-banner">
           <div>
             <span className="eyebrow text-brand-100">Contacto</span>
@@ -290,7 +290,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="pb-10 text-center text-sm text-slate-500">
+      <footer className="pb-8 text-center text-sm text-slate-500">
         © 2026 Soluciones Informáticas. Todos los derechos reservados.
       </footer>
     </main>
