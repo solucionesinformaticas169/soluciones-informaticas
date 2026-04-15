@@ -2,6 +2,7 @@ import Link from "next/link";
 import BrandMark from "@/app/components/BrandMark";
 import { MailIcon, WhatsAppIcon } from "@/app/components/ContactIcons";
 import FloatingPrompt from "@/app/components/FloatingPrompt";
+import MobileMenu from "@/app/components/MobileMenu";
 import {
   adminHighlights,
   company,
@@ -30,44 +31,7 @@ export default function HomePage() {
                 <span className="h-[3px] w-32 rounded-full bg-brand-500 shadow-[0_0_24px_rgba(49,141,255,0.55)]" />
               </div>
 
-              <details className="group relative z-30 md:hidden">
-                <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/10 bg-white/10 px-5 py-3 text-sm font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15">
-                  <span>Menú</span>
-                  <span className="text-xs transition group-open:rotate-180">⌄</span>
-                </summary>
-                <nav className="absolute right-0 z-40 mt-3 grid min-w-[230px] gap-2 rounded-[1.5rem] border border-white/10 bg-[#0f1f3d] p-3 shadow-[0_24px_60px_rgba(3,10,23,0.52)]">
-                  <Link
-                    href="/agendar"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
-                  >
-                    Agenda cita
-                  </Link>
-                  <a
-                    href="#servicios"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
-                  >
-                    Servicios
-                  </a>
-                  <a
-                    href="#automatizacion"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
-                  >
-                    Automatización
-                  </a>
-                  <a
-                    href="#contacto"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
-                  >
-                    Contacto
-                  </a>
-                  <Link
-                    href="/admin/login"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15"
-                  >
-                    Login
-                  </Link>
-                </nav>
-              </details>
+              <MobileMenu />
 
               <nav className="hidden flex-wrap gap-3 text-sm text-slate-200 md:flex">
                 <Link href="/agendar" className="nav-chip">
