@@ -176,10 +176,6 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
     <form onSubmit={handleSubmit} className="card space-y-6">
       <div>
         <h3 className="text-2xl font-semibold text-slate-950">Agenda una cita</h3>
-        <p className="mt-2 text-sm leading-6 text-slate-600">
-          Completa el formulario para solicitar una reunión. Esta base ya queda lista para confirmaciones por
-          WhatsApp, correo y seguimiento interno desde un panel administrativo.
-        </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">

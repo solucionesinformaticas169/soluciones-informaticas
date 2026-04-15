@@ -23,10 +23,6 @@ export default async function AgendarPage() {
             <BrandMark width={260} />
             <span className="eyebrow text-brand-100">Reserva tu espacio</span>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-white">Agendamiento profesional</h1>
-            <p className="mt-4 leading-8 text-slate-300">
-              Este módulo te permite ofrecer una atención ordenada desde la web. Cada solicitud puede guardarse en
-              PostgreSQL, gestionarse desde panel administrativo y conectarse después con automatizaciones reales.
-            </p>
             <div className="mt-8 grid gap-4">
               {valuePoints.map((item) => (
                 <div key={item} className="rounded-3xl border border-white/10 bg-white/5 p-5">
