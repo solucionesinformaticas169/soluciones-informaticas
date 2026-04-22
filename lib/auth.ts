@@ -10,6 +10,10 @@ type SessionPayload = {
   exp: number;
 };
 
+function readEnvValue(name: string) {
+  return process.env[name]?.trim() || "";
+}
+
 function getAuthSecret() {
   return process.env.AUTH_SECRET || "change-me-in-production";
 }
@@ -53,7 +57,14 @@ function parseSession(token: string): SessionPayload | null {
 }
 
 export function isAdminConfigured() {
-  return Boolean(process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD);
+  return Boolean(readEnvValue("ADMIN_EMAIL") && readEnvValue("ADMIN_PASSWORD"));
+}
+
+export function getAdminCredentials() {
+  return {
+    email: readEnvValue("ADMIN_EMAIL"),
+    password: readEnvValue("ADMIN_PASSWORD")
+  };
 }
 
 export async function createAdminSession(email: string) {

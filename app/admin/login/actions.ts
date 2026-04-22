@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createAdminSession, isAdminConfigured } from "@/lib/auth";
+import { createAdminSession, getAdminCredentials, isAdminConfigured } from "@/lib/auth";
 
 export type LoginState = {
   error?: string;
@@ -16,8 +16,9 @@ export async function loginAction(_prevState: LoginState, formData: FormData): P
 
   const email = String(formData.get("email") || "").trim();
   const password = String(formData.get("password") || "").trim();
+  const adminCredentials = getAdminCredentials();
 
-  if (email !== process.env.ADMIN_EMAIL || password !== process.env.ADMIN_PASSWORD) {
+  if (email !== adminCredentials.email || password !== adminCredentials.password) {
     return {
       error: "Credenciales invalidas."
     };
