@@ -43,11 +43,12 @@ function isValidEmail(value: string) {
 
 export default function AppointmentForm({ services }: { services: ServiceOption[] }) {
   const dateInputRef = useRef<HTMLInputElement>(null);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
   const [form, setForm] = useState<FormState>({
     fullName: "",
     phone: "",
     email: "",
-    serviceId: services[0]?.id || "",
+    serviceId: "",
     appointmentDate: "",
     appointmentTime: "",
     notes: ""
@@ -59,13 +60,30 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const minDate = getMinDate();
+  const missingFields = {
+    fullName: form.fullName.trim().length === 0,
+    phone: form.phone.trim().length === 0,
+    email: form.email.trim().length === 0,
+    serviceId: form.serviceId.trim().length === 0,
+    appointmentDate: form.appointmentDate.trim().length === 0,
+    appointmentTime: form.appointmentTime.trim().length === 0,
+    notes: form.notes.trim().length === 0
+  };
+  const invalidFields = {
+    fullName: form.fullName.trim().length > 0 && !isValidFullName(form.fullName),
+    phone: form.phone.trim().length > 0 && !isValidPhone(form.phone),
+    email: form.email.trim().length > 0 && !isValidEmail(form.email)
+  };
+  const missingCount = Object.values(missingFields).filter(Boolean).length;
+  const invalidCount = Object.values(invalidFields).filter(Boolean).length;
   const isFormValid =
     isValidFullName(form.fullName) &&
     isValidPhone(form.phone) &&
     isValidEmail(form.email) &&
     form.serviceId.trim().length > 0 &&
     form.appointmentDate.trim().length > 0 &&
-    form.appointmentTime.trim().length > 0;
+    form.appointmentTime.trim().length > 0 &&
+    form.notes.trim().length > 0;
 
   useEffect(() => {
     let isMounted = true;
@@ -143,8 +161,16 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!isFormValid) {
-      setError("Completa correctamente todos los campos obligatorios.");
+    setSubmitAttempted(true);
+
+    if (missingCount > 0) {
+      setError(missingCount === 1 ? "Ingrese el campo que falta." : "Ingrese los campos que faltan.");
+      setMessage(null);
+      return;
+    }
+
+    if (invalidCount > 0 || !isFormValid) {
+      setError(invalidCount === 1 ? "Revisa el campo marcado en rojo." : "Revisa los campos marcados en rojo.");
       setMessage(null);
       return;
     }
@@ -174,11 +200,12 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
       }
 
       setMessage("Tu solicitud fue registrada. Revisaremos la disponibilidad y te confirmaremos por WhatsApp o correo.");
+      setSubmitAttempted(false);
       setForm({
         fullName: "",
         phone: "",
         email: "",
-        serviceId: services[0]?.id || "",
+        serviceId: "",
         appointmentDate: "",
         appointmentTime: "",
         notes: ""
@@ -198,15 +225,23 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
 
       <div className="grid gap-4 md:grid-cols-2">
         <label className="space-y-2 text-sm">
-          <span className="font-medium text-slate-800">Nombre completo</span>
+          <span className="font-medium text-slate-800">
+            Nombre completo
+            {submitAttempted && missingFields.fullName ? <span className="ml-1 text-rose-600">*</span> : null}
+          </span>
           <input
             required
             value={form.fullName}
             onChange={(event) => {
               const nextValue = event.target.value.replace(/[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]/g, "");
+              setError(null);
               setForm({ ...form, fullName: nextValue });
             }}
-            className="form-input"
+            className={`form-input ${
+              submitAttempted && (missingFields.fullName || invalidFields.fullName)
+                ? "border-rose-300 ring-2 ring-rose-100"
+                : ""
+            }`}
             inputMode="text"
             pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+"
             title="Ingresa solo letras."
@@ -217,15 +252,23 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
         </label>
 
         <label className="space-y-2 text-sm">
-          <span className="font-medium text-slate-800">Teléfono / WhatsApp</span>
+          <span className="font-medium text-slate-800">
+            Teléfono / WhatsApp
+            {submitAttempted && missingFields.phone ? <span className="ml-1 text-rose-600">*</span> : null}
+          </span>
           <input
             required
             value={form.phone}
             onChange={(event) => {
               const nextValue = event.target.value.replace(/\D/g, "").slice(0, 10);
+              setError(null);
               setForm({ ...form, phone: nextValue });
             }}
-            className="form-input"
+            className={`form-input ${
+              submitAttempted && (missingFields.phone || invalidFields.phone)
+                ? "border-rose-300 ring-2 ring-rose-100"
+                : ""
+            }`}
             inputMode="numeric"
             maxLength={10}
             pattern="\d{10}"
@@ -237,13 +280,23 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
         </label>
 
         <label className="space-y-2 text-sm">
-          <span className="font-medium text-slate-800">Correo electrónico</span>
+          <span className="font-medium text-slate-800">
+            Correo electrónico
+            {submitAttempted && missingFields.email ? <span className="ml-1 text-rose-600">*</span> : null}
+          </span>
           <input
             required
             type="email"
             value={form.email}
-            onChange={(event) => setForm({ ...form, email: event.target.value })}
-            className="form-input"
+            onChange={(event) => {
+              setError(null);
+              setForm({ ...form, email: event.target.value });
+            }}
+            className={`form-input ${
+              submitAttempted && (missingFields.email || invalidFields.email)
+                ? "border-rose-300 ring-2 ring-rose-100"
+                : ""
+            }`}
             inputMode="email"
           />
           {form.email.length > 0 && !isValidEmail(form.email) ? (
@@ -252,12 +305,20 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
         </label>
 
         <label className="space-y-2 text-sm">
-          <span className="font-medium text-slate-800">Servicio</span>
+          <span className="font-medium text-slate-800">
+            Elija un servicio
+            {submitAttempted && missingFields.serviceId ? <span className="ml-1 text-rose-600">*</span> : null}
+          </span>
           <select
+            required
             value={form.serviceId}
-            onChange={(event) => setForm({ ...form, serviceId: event.target.value })}
-            className="form-input"
+            onChange={(event) => {
+              setError(null);
+              setForm({ ...form, serviceId: event.target.value });
+            }}
+            className={`form-input ${submitAttempted && missingFields.serviceId ? "border-rose-300 ring-2 ring-rose-100" : ""}`}
           >
+            <option value="">Seleccione</option>
             {services.map((service) => (
               <option key={service.id} value={service.id}>
                 {service.name}
@@ -267,15 +328,23 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
         </label>
       </div>
 
-      <div className="rounded-3xl bg-slate-50 p-5 text-sm leading-6 text-slate-600">
-        {services.find((service) => service.id === form.serviceId)?.shortDescription ||
-          "Selecciona el servicio que mejor se ajuste a tu necesidad."}
-      </div>
+      {form.serviceId ? (
+        <div className="rounded-3xl border border-brand-200 bg-[linear-gradient(135deg,rgba(49,141,255,0.12),rgba(49,141,255,0.04))] p-5 text-sm leading-6 text-brand-900 shadow-[0_14px_30px_rgba(49,141,255,0.10)]">
+          <p className="font-medium">{services.find((service) => service.id === form.serviceId)?.shortDescription}</p>
+        </div>
+      ) : null}
 
       <div className="grid gap-4 md:grid-cols-2">
         <label className="space-y-2 text-sm">
-          <span className="font-medium text-slate-800">Fecha</span>
-          <div className="relative overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-[0_10px_24px_rgba(15,23,42,0.06)] transition focus-within:border-brand-500 focus-within:ring-4 focus-within:ring-brand-100">
+          <span className="font-medium text-slate-800">
+            Elija una fecha
+            {submitAttempted && missingFields.appointmentDate ? <span className="ml-1 text-rose-600">*</span> : null}
+          </span>
+          <div
+            className={`relative overflow-hidden rounded-2xl border bg-white shadow-[0_10px_24px_rgba(15,23,42,0.06)] transition focus-within:border-brand-500 focus-within:ring-4 focus-within:ring-brand-100 ${
+              submitAttempted && missingFields.appointmentDate ? "border-rose-300 ring-2 ring-rose-100" : "border-slate-300"
+            }`}
+          >
             <input
               ref={dateInputRef}
               required
@@ -314,12 +383,18 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
         </label>
 
         <label className="space-y-2 text-sm">
-          <span className="font-medium text-slate-800">Hora</span>
+          <span className="font-medium text-slate-800">
+            Elija una hora
+            {submitAttempted && missingFields.appointmentTime ? <span className="ml-1 text-rose-600">*</span> : null}
+          </span>
           <select
             required
             value={form.appointmentTime}
-            onChange={(event) => setForm({ ...form, appointmentTime: event.target.value })}
-            className="form-input"
+            onChange={(event) => {
+              setError(null);
+              setForm({ ...form, appointmentTime: event.target.value });
+            }}
+            className={`form-input ${submitAttempted && missingFields.appointmentTime ? "border-rose-300 ring-2 ring-rose-100" : ""}`}
             disabled={!form.appointmentDate || availabilityLoading || availableTimes.length === 0}
           >
             <option value="">
@@ -351,12 +426,19 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
       </div>
 
       <label className="space-y-2 text-sm">
-        <span className="font-medium text-slate-800">Detalle de la necesidad</span>
+        <span className="font-medium text-slate-800">
+          Detalle de la necesidad
+          {submitAttempted && missingFields.notes ? <span className="ml-1 text-rose-600">*</span> : null}
+        </span>
         <textarea
+          required
           rows={5}
           value={form.notes}
-          onChange={(event) => setForm({ ...form, notes: event.target.value })}
-          className="form-input min-h-[140px] resize-y"
+          onChange={(event) => {
+            setError(null);
+            setForm({ ...form, notes: event.target.value });
+          }}
+          className={`form-input min-h-[140px] resize-y ${submitAttempted && missingFields.notes ? "border-rose-300 ring-2 ring-rose-100" : ""}`}
           placeholder="Cuéntame brevemente en qué necesitas ayuda, el tipo de negocio o el problema que quieres resolver."
         />
       </label>
@@ -371,7 +453,7 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
 
       <button
         type="submit"
-        disabled={loading || services.length === 0 || !isFormValid}
+        disabled={loading || services.length === 0}
         className="btn-primary w-full justify-center disabled:opacity-70"
       >
         {loading ? "Registrando cita..." : "Solicitar cita"}

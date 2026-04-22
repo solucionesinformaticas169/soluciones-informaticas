@@ -1,6 +1,6 @@
 ﻿import Link from "next/link";
 import BrandMark from "@/app/components/BrandMark";
-import { MailIcon, WhatsAppIcon } from "@/app/components/ContactIcons";
+import { WhatsAppIcon } from "@/app/components/ContactIcons";
 import FloatingPrompt from "@/app/components/FloatingPrompt";
 import MobileMenu from "@/app/components/MobileMenu";
 import {
@@ -80,7 +80,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3 font-semibold text-white transition hover:bg-[#20bd5a]"
                 >
                   <WhatsAppIcon className="h-5 w-5" />
-                  Contactar por WhatsApp
+                  WhatsApp
                 </a>
                 <a href="#contacto" className="btn-ghost">
                   Solicitar información
@@ -247,11 +247,7 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3 font-semibold text-white transition hover:bg-[#20bd5a]"
             >
               <WhatsAppIcon className="h-5 w-5" />
-              Abrir WhatsApp
-            </a>
-            <a href={`mailto:${company.email}`} className="btn-secondary gap-2">
-              <MailIcon className="h-5 w-5" />
-              Envía un correo
+              WhatsApp
             </a>
             <a
               href="#top"

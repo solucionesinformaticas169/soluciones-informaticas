@@ -1,9 +1,9 @@
 import Link from "next/link";
 import AppointmentForm from "@/app/components/AppointmentForm";
 import BrandMark from "@/app/components/BrandMark";
-import { MailIcon, WhatsAppIcon } from "@/app/components/ContactIcons";
+import { WhatsAppIcon } from "@/app/components/ContactIcons";
 import { getActiveServices } from "@/lib/data";
-import { company, valuePoints, whatsappUrl } from "@/lib/site";
+import { valuePoints, whatsappUrl } from "@/lib/site";
 
 export default async function AgendarPage() {
   const services = await getActiveServices();
@@ -35,8 +35,8 @@ export default async function AgendarPage() {
           <div className="card">
             <span className="eyebrow">Contacto rápido</span>
             <p className="mt-4 leading-7 text-slate-600">
-              Si prefieres coordinar primero por mensaje o por correo, puedes escribir directamente y luego pasamos
-              a la reserva formal.
+              Si prefieres coordinar primero por mensaje, puedes escribir directamente y luego pasamos a la reserva
+              formal.
             </p>
             <div className="mt-6 grid gap-4">
               <a
@@ -47,13 +47,6 @@ export default async function AgendarPage() {
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 WhatsApp
-              </a>
-              <a
-                href={`mailto:${company.email}`}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 px-5 py-4 text-center font-medium text-slate-700 transition hover:border-brand-300 hover:text-brand-700"
-              >
-                <MailIcon className="h-5 w-5" />
-                Envía un correo
               </a>
             </div>
           </div>
