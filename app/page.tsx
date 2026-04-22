@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import BrandMark from "@/app/components/BrandMark";
 import { MailIcon, WhatsAppIcon } from "@/app/components/ContactIcons";
 import FloatingPrompt from "@/app/components/FloatingPrompt";
@@ -14,13 +14,13 @@ import {
 
 export default function HomePage() {
   return (
-    <main className="overflow-hidden">
+    <main id="top" className="overflow-hidden">
       <FloatingPrompt />
 
       <section className="hero-shell">
         <div className="section pb-10 pt-6">
-          <header className="-mx-4 mb-6 border-b border-white/10 bg-[#0b1833]/75 px-4 py-4 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10">
-            <div className="flex items-start justify-between gap-6">
+          <header className="fixed left-0 right-0 top-0 z-40 border-b border-white/10 bg-[#0b1833]/95 px-4 py-4 shadow-[0_14px_40px_rgba(4,12,28,0.22)] backdrop-blur sm:px-6 lg:px-10">
+            <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
               <div className="flex flex-col gap-3">
                 <div className="group relative transition duration-500 hover:-translate-y-1 hover:scale-[1.03]">
                   <div className="pointer-events-none absolute inset-0 rounded-[1.25rem] bg-[radial-gradient(circle_at_center,_rgba(49,141,255,0.3),_transparent_68%)] opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
@@ -53,9 +53,11 @@ export default function HomePage() {
             </div>
           </header>
 
+          <div className="h-[110px] sm:h-[118px]" />
+
           <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <span className="inline-flex rounded-full border border-brand-400/30 bg-brand-300/10 px-4 py-2 text-sm font-medium text-brand-100">
+              <span className="inline-flex rounded-full border border-brand-400/30 bg-brand-300/10 px-4 py-2 text-sm font-medium text-brand-100 transition duration-300 hover:border-brand-300/70 hover:bg-brand-300/15 hover:shadow-[0_0_24px_rgba(49,141,255,0.22)]">
                 {company.slogan}
               </span>
               <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl xl:text-6xl">
@@ -71,7 +73,12 @@ export default function HomePage() {
                 <Link href="/agendar" className="btn-primary">
                   Agendar cita
                 </Link>
-                <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-secondary gap-2">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3 font-semibold text-white transition hover:bg-[#20bd5a]"
+                >
                   <WhatsAppIcon className="h-5 w-5" />
                   Contactar por WhatsApp
                 </a>
@@ -123,11 +130,6 @@ export default function HomePage() {
       <section id="servicios" className="section">
         <div className="section-heading">
           <span className="eyebrow">Servicios principales</span>
-          <h2>Soluciones alineadas con desarrollo, automatización, peritaje digital e inteligencia artificial.</h2>
-          <p>
-            Esta página ya comunica con claridad que puedes crear sistemas completos, mejorar procesos y resolver
-            necesidades técnicas reales para empresas y profesionales.
-          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -238,7 +240,12 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-4 lg:justify-items-end">
-            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-primary gap-2">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3 font-semibold text-white transition hover:bg-[#20bd5a]"
+            >
               <WhatsAppIcon className="h-5 w-5" />
               Abrir WhatsApp
             </a>
@@ -246,9 +253,11 @@ export default function HomePage() {
               <MailIcon className="h-5 w-5" />
               Envía un correo
             </a>
-            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-ghost gap-2 text-white">
-              <WhatsAppIcon className="h-5 w-5" />
-              {company.phoneDisplay}
+            <a
+              href="#top"
+              className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-brand-300/60 hover:bg-white/10 hover:shadow-[0_18px_34px_rgba(49,141,255,0.16)]"
+            >
+              Volver arriba
             </a>
           </div>
         </div>

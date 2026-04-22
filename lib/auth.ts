@@ -57,12 +57,12 @@ function parseSession(token: string): SessionPayload | null {
 }
 
 export function isAdminConfigured() {
-  return Boolean(readEnvValue("ADMIN_EMAIL") && readEnvValue("ADMIN_PASSWORD"));
+  return Boolean((readEnvValue("ADMIN_USERNAME") || readEnvValue("ADMIN_EMAIL")) && readEnvValue("ADMIN_PASSWORD"));
 }
 
 export function getAdminCredentials() {
   return {
-    email: readEnvValue("ADMIN_EMAIL"),
+    username: readEnvValue("ADMIN_USERNAME") || readEnvValue("ADMIN_EMAIL"),
     password: readEnvValue("ADMIN_PASSWORD")
   };
 }

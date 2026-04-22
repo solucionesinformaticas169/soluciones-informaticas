@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ServiceOption = {
   id: string;
@@ -42,6 +42,7 @@ function isValidEmail(value: string) {
 }
 
 export default function AppointmentForm({ services }: { services: ServiceOption[] }) {
+  const dateInputRef = useRef<HTMLInputElement>(null);
   const [form, setForm] = useState<FormState>({
     fullName: "",
     phone: "",
@@ -123,6 +124,23 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
     };
   }, [form.appointmentDate]);
 
+  function openDatePicker() {
+    const input = dateInputRef.current;
+    if (!input) {
+      return;
+    }
+
+    const pickerInput = input as HTMLInputElement & { showPicker?: () => void };
+
+    if (typeof pickerInput.showPicker === "function") {
+      pickerInput.showPicker();
+      return;
+    }
+
+    input.focus();
+    input.click();
+  }
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!isFormValid) {
@@ -189,7 +207,6 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
               setForm({ ...form, fullName: nextValue });
             }}
             className="form-input"
-            placeholder="Juan Pérez"
             inputMode="text"
             pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+"
             title="Ingresa solo letras."
@@ -209,7 +226,6 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
               setForm({ ...form, phone: nextValue });
             }}
             className="form-input"
-            placeholder="0998622737"
             inputMode="numeric"
             maxLength={10}
             pattern="\d{10}"
@@ -228,7 +244,6 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
             value={form.email}
             onChange={(event) => setForm({ ...form, email: event.target.value })}
             className="form-input"
-            placeholder="cliente@empresa.com"
             inputMode="email"
           />
           {form.email.length > 0 && !isValidEmail(form.email) ? (
@@ -260,26 +275,42 @@ export default function AppointmentForm({ services }: { services: ServiceOption[
       <div className="grid gap-4 md:grid-cols-2">
         <label className="space-y-2 text-sm">
           <span className="font-medium text-slate-800">Fecha</span>
-          <input
-            required
-            type="date"
-            min={minDate}
-            value={form.appointmentDate}
-            onChange={(event) => {
-              const nextDate = event.target.value;
+          <div className="relative overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-[0_10px_24px_rgba(15,23,42,0.06)] transition focus-within:border-brand-500 focus-within:ring-4 focus-within:ring-brand-100">
+            <input
+              ref={dateInputRef}
+              required
+              type="date"
+              min={minDate}
+              value={form.appointmentDate}
+              onChange={(event) => {
+                const nextDate = event.target.value;
 
-              if (nextDate && isSundayDate(nextDate)) {
-                setForm({ ...form, appointmentDate: "", appointmentTime: "" });
-                setError("Los domingos no están disponibles. Selecciona otro día.");
-                setMessage(null);
-                return;
-              }
+                if (nextDate && isSundayDate(nextDate)) {
+                  setForm({ ...form, appointmentDate: "", appointmentTime: "" });
+                  setError("Los domingos no están disponibles. Selecciona otro día.");
+                  setMessage(null);
+                  return;
+                }
 
-              setError(null);
-              setForm({ ...form, appointmentDate: nextDate, appointmentTime: "" });
-            }}
-            className="form-input"
-          />
+                setError(null);
+                setForm({ ...form, appointmentDate: nextDate, appointmentTime: "" });
+              }}
+              className="date-input"
+            />
+            <button
+              type="button"
+              onClick={openDatePicker}
+              className="absolute inset-y-0 right-0 flex items-center border-l border-slate-200 bg-slate-50 px-4 text-slate-500 transition hover:bg-slate-100 hover:text-brand-700"
+              aria-label="Abrir calendario"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+                <path
+                  fill="currentColor"
+                  d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 1-1Zm12 8H5v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8ZM6 6a1 1 0 0 0-1 1v1h14V7a1 1 0 0 0-1-1H6Z"
+                />
+              </svg>
+            </button>
+          </div>
         </label>
 
         <label className="space-y-2 text-sm">

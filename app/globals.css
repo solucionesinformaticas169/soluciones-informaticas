@@ -69,7 +69,7 @@ body {
 }
 
 .nav-chip {
-  @apply rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:border-brand-300/40 hover:bg-white/10;
+  @apply rounded-full border border-white/15 bg-[#22375f] px-4 py-2 text-white/95 shadow-[0_10px_24px_rgba(4,12,28,0.14)] transition duration-300 hover:border-brand-300/70 hover:bg-brand-400/15 hover:text-white hover:shadow-[0_0_24px_rgba(49,141,255,0.22)];
 }
 
 .btn-primary {
@@ -86,6 +86,16 @@ body {
 
 .form-input {
   @apply w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-4 focus:ring-brand-100;
+}
+
+.date-input {
+  @apply w-full border-0 bg-transparent px-4 py-3 pr-14 outline-none;
+  color-scheme: light;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
 }
 
 .cta-banner {

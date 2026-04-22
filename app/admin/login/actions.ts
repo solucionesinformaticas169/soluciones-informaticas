@@ -10,20 +10,20 @@ export type LoginState = {
 export async function loginAction(_prevState: LoginState, formData: FormData): Promise<LoginState> {
   if (!isAdminConfigured()) {
     return {
-      error: "Configura ADMIN_EMAIL y ADMIN_PASSWORD en tu entorno para habilitar el acceso."
+      error: "Configura ADMIN_USERNAME y ADMIN_PASSWORD en tu entorno para habilitar el acceso."
     };
   }
 
-  const email = String(formData.get("email") || "").trim();
+  const username = String(formData.get("username") || "").trim();
   const password = String(formData.get("password") || "").trim();
   const adminCredentials = getAdminCredentials();
 
-  if (email !== adminCredentials.email || password !== adminCredentials.password) {
+  if (username !== adminCredentials.username || password !== adminCredentials.password) {
     return {
       error: "Credenciales invalidas."
     };
   }
 
-  await createAdminSession(email);
+  await createAdminSession(username);
   redirect("/admin");
 }

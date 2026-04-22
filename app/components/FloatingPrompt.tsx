@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { WhatsAppIcon } from "@/app/components/ContactIcons";
+import { whatsappUrl } from "@/lib/site";
 
 export default function FloatingPrompt() {
   const [isOpen, setIsOpen] = useState(true);
@@ -14,9 +15,15 @@ export default function FloatingPrompt() {
   return (
     <div className="pointer-events-none fixed bottom-4 left-4 z-50 max-w-[calc(100vw-2rem)] sm:bottom-6 sm:left-6">
       <div className="pointer-events-auto relative w-full max-w-[18rem] rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_24px_80px_rgba(15,23,42,0.22)] sm:max-w-[19rem]">
-        <div className="absolute -bottom-3 -left-3 flex h-11 w-11 items-center justify-center rounded-full border-4 border-slate-100 bg-brand-500 text-white shadow-[0_12px_30px_rgba(49,141,255,0.35)]">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Abrir chat de WhatsApp"
+          className="absolute -bottom-3 -left-3 flex h-11 w-11 items-center justify-center rounded-full border-4 border-slate-100 bg-[#25D366] text-white shadow-[0_12px_30px_rgba(37,211,102,0.35)] transition duration-300 hover:scale-105 hover:bg-[#20bd5a]"
+        >
           <WhatsAppIcon className="h-4.5 w-4.5" />
-        </div>
+        </a>
 
         <p className="pr-6 text-lg font-semibold leading-tight text-slate-950">
           ¿Listo para automatizar o lanzar tu sistema?

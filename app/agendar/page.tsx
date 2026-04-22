@@ -39,7 +39,12 @@ export default async function AgendarPage() {
               a la reserva formal.
             </p>
             <div className="mt-6 grid gap-4">
-              <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-secondary justify-center gap-2">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3 font-semibold text-white transition hover:bg-[#20bd5a]"
+              >
                 <WhatsAppIcon className="h-5 w-5" />
                 WhatsApp
               </a>

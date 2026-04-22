@@ -10,7 +10,7 @@ import { serviceSchema } from "@/lib/validators";
 
 export async function logoutAction() {
   await clearAdminSession();
-  redirect("/admin/login");
+  redirect("/");
 }
 
 export async function updateAppointmentStatusAction(formData: FormData) {

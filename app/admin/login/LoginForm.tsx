@@ -31,8 +31,8 @@ export default function LoginForm() {
 
       <div className="mt-8 space-y-5">
       <label className="space-y-2 text-sm">
-        <span className="font-medium text-slate-800">Correo admin</span>
-        <input name="email" type="email" className="form-input" placeholder="admin@empresa.com" required />
+        <span className="font-medium text-slate-800">Usuario</span>
+        <input name="username" type="text" className="form-input" placeholder="admin" required />
       </label>
 
       <label className="space-y-2 text-sm">
