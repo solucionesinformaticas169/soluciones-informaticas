@@ -80,6 +80,9 @@ export default function MobileMenu() {
           >
             Contacto
           </a>
+          <Link href="/pagos" onClick={closeMenu} className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-brand-300/40 hover:bg-white/15">
+            Pagos
+          </Link>
           <Link
             href="/admin/login"
             onClick={closeMenu}

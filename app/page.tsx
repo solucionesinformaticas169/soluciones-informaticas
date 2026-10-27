@@ -46,6 +46,9 @@ export default function HomePage() {
                 <a href="#contacto" className="nav-chip">
                   Contacto
                 </a>
+                <Link href="/pagos" className="nav-chip">
+                  Pagos
+                </Link>
                 <Link href="/admin/login" className="nav-chip">
                   Login
                 </Link>

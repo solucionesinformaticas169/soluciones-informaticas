@@ -24,6 +24,9 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
           <Link href="/admin/services" className="rounded-2xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">
             Servicios
           </Link>
+          <Link href="/admin/payments" className="rounded-2xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">
+            Pagos
+          </Link>
           <form action={logoutAction}>
             <button type="submit" className="rounded-2xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">
               Cerrar sesion

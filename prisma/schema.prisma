@@ -104,3 +104,36 @@ model NotificationJob {
   @@index([appointmentId])
   @@index([channel, template])
 }
+
+enum PaymentStatus {
+  PENDING
+  VERIFYING
+  APPROVED
+  CANCELLED
+  REVIEW
+}
+
+model Payment {
+  id                    String        @id @default(uuid())
+  clientTransactionId   String        @unique
+  requestKey            String
+  providerTransactionId String?       @unique
+  returnTransactionId   String?
+  fullName              String?
+  email                 String?
+  phone                 String?
+  serviceName           String?
+  concept               String
+  amountCents           Int
+  currency              String        @default("USD")
+  status                PaymentStatus @default(PENDING)
+  verificationUntil     DateTime?
+  failureReason         String?
+  paidAt                DateTime?
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+
+  @@index([createdAt])
+  @@index([status, createdAt])
+  @@index([requestKey, createdAt])
+}
